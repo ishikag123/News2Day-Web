@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import img from "../Assets/logo.png";
 export const Navbar = () => {
   return (
-    <div className="w-full p-2 flex justify-center items-center font-serif mb-1">
+    <div className="w-screen p-2 pr-6 pl-6 flex justify-center items-center font-serif z-50 fixed bg-[#ffffffbe]">
       <img src={img} alt="" className="w-16 h-16 rounded-full mr-auto m-2" />
 
       <ul className="flex gap-3 ml-auto text-xl text-[#3b8beb] transition-all ease-in-out delay-100 font-bold">
