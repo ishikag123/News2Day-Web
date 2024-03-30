@@ -9,6 +9,8 @@ export const GlobalContext = ({ children }) => {
   const [newsTitle, setNewsTitle] = useState("");
   const [newsCat, setNewsCat] = useState("");
   const [newsContent, setNewsContent] = useState("");
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [openViewModal, setOpenViewModal] = useState(false);
   return (
     <Global.Provider
       value={{
@@ -24,6 +26,10 @@ export const GlobalContext = ({ children }) => {
         setNewsCat,
         newsContent,
         setNewsContent,
+        openCreateModal,
+        setOpenCreateModal,
+        openViewModal,
+        setOpenViewModal,
       }}
     >
       {children}

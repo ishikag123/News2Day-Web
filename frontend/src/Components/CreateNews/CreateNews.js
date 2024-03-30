@@ -5,13 +5,10 @@ import { TbPhotoSquareRounded } from "react-icons/tb";
 import { IoVideocamOutline } from "react-icons/io5";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { FaMobileAlt } from "react-icons/fa";
-import { Global } from "../Context/GlobalContext";
-import Modal from "react-bootstrap/Modal";
+import { Global } from "../../Context/GlobalContext";
+import { CreateNewsModal } from "../Modals/CreateNewsModal";
 import { Player, BigPlayButton } from "video-react";
 import "../../../node_modules/video-react/dist/video-react.css";
-import ModalTitle from "react-bootstrap/esm/ModalTitle";
-import ModalBody from "react-bootstrap/esm/ModalBody";
-import ModalFooter from "react-bootstrap/esm/ModalFooter";
 
 export const CreateNews = () => {
   const {
@@ -24,18 +21,19 @@ export const CreateNews = () => {
     setVideo,
     image,
     video,
+    openCreateModal,
+    setOpenCreateModal,
   } = useContext(Global);
-  const [openModal, setOpenModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOpenModal(true);
+    setOpenCreateModal(true);
   };
 
   return (
     <div className="flex flex-col h-screen md:flex-row justify-center w-full">
-      <div className="flex flex-col md:flex-row mt-32 h-full w-full justify-center">
-        <div className="flex flex-col h-5/6 max-h-full w-full md:w-1/2 bg-white rounded-lg border-2 border-blue-200 p-8 m-3 items-stretch justify-stretch gap-10 overflow-y-auto mt-0 shadow-lg shadow-blue-200">
+      <div className="flex flex-col md:flex-row mt-28 h-full w-full justify-center px-16">
+        <div className="flex flex-col h-5/6 max-h-full w-full md:w-1/2 bg-white rounded-lg border-2 border-blue-200 p-8 m-3 items-stretch justify-stretch gap-10 overflow-y-auto mt-0 shadow-lg shadow-blue-200 animate-fade-down">
           <form
             className="flex flex-col gap-5 w-full h-full"
             onSubmit={handleSubmit}
@@ -74,7 +72,7 @@ export const CreateNews = () => {
           /> */}
 
             {(image || video) && (
-              <div className="flex gap-5 w-full h-full justify-center items-center transition-all ease-in-out delay-100">
+              <div className="flex gap-5 w-full h-full justify-center items-center transition-all ease-in-out delay-100 animate-fade">
                 {image && <img src={image} alt="" className="w-1/2 h-full" />}
                 {video && (
                   <Player
@@ -125,16 +123,16 @@ export const CreateNews = () => {
                   setVideo(URL.createObjectURL(e.target.files[0]))
                 }
               />
-              <button
+              <div
                 className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer"
                 onClick={() => setMobile(true)}
               >
                 <h2>Click for mobile preview</h2>
                 <FaMobileAlt />
-              </button>
+              </div>
               <button
                 className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 ml-auto w-36"
-                onClick={() => setOpenModal(true)}
+                //onClick={() => setOpenModal(true)}
                 type="submit"
               >
                 <FaRegPlusSquare className="text-xl" />
@@ -143,37 +141,16 @@ export const CreateNews = () => {
             </div>
           </form>
         </div>
-        {/* <div > */}
-        {/* <button
-          className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 m-3"
-          onClick={() => setMobile(true)}
-        >
-          <h2>Click for mobile preview</h2>
-          <FaMobileAlt />
-        </button> */}
+
         {mobile && (
-          <div className="flex flex-col w-full md:w-1/2 ">
+          <div className="flex flex-col w-full md:w-1/2 animate-fade-left animate-delay-400">
             <MobileContainer />
           </div>
         )}
         {/* </div> */}
-        {openModal && (
-          <Modal size="xl" centered={true}>
-            <ModalTitle>Do you want to publish?</ModalTitle>
-            <ModalBody>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-              rerum ipsum quidem sapiente id maiores, quam animi cumque placeat,
-              omnis nemo porro provident earum sunt. Quibusdam odio nam porro
-              fugit?
-            </ModalBody>
-            <ModalFooter>
-              <button>Cancel</button>
-              <button>Save Draft</button>
-              <button>Publish</button>
-            </ModalFooter>
-          </Modal>
-        )}
       </div>
+
+      {openCreateModal ? <CreateNewsModal /> : <></>}
     </div>
   );
 };

@@ -25,7 +25,7 @@ ChartJS.register(
 export const Performance = () => {
   return (
     <div className="flex flex-col w-full justify-center items-center ">
-      <div className="flex flex-col w-full justify-center items-center mt-32">
+      <div className="flex flex-col w-full justify-center items-center mt-32 animate-fade-down">
         <div className="flex h-full justify-center items-center w-full p-16 gap-8">
           {/* Categorywise performance over time */}
           <div className="w-1/2 h-full p-16 mr-auto shadow-xl rounded-xl">
@@ -38,19 +38,19 @@ export const Performance = () => {
         </div>
         {/* Total likes,share and comments */}
         <div className="h-full flex gap-32 w-full font-semibold m-auto p-20">
-          <div className="flex flex-col rounded-3xl bg-[#36c1d3] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center ">
+          <div className="flex flex-col rounded-3xl bg-[#36c1d3] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center hover:animate-rotate-y hover:animate-delay-300 hover:animate-ease-in hover:animate-alternate-reverse cursor-pointer">
             <div className="border-white border-double border-8 rounded-3xl shadow-inner shadow-white p-16 w-full">
               <h1>Total Likes</h1>
               <h1 className="font-bold text-6xl drop-shadow-xl">100k</h1>
             </div>
           </div>
-          <div className="flex flex-col rounded-3xl bg-[#3ba8eb] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center ">
+          <div className="flex flex-col rounded-3xl bg-[#3ba8eb] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center hover:animate-rotate-y hover:animate-delay-300 hover:animate-ease-in hover:animate-alternate-reverse cursor-pointer">
             <div className="border-white border-double border-8 rounded-3xl shadow-inner shadow-white p-16 w-full">
               <h1>Total Shares</h1>
               <h1 className="font-bold text-6xl drop-shadow-xl">10k</h1>
             </div>
           </div>
-          <div className="flex flex-col rounded-3xl bg-[#3b4aeb] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center ">
+          <div className="flex flex-col rounded-3xl bg-[#3b4aeb] w-full shadow-2xl gap-2 p-8 text-white text-center text-lg justify-center items-center hover:animate-rotate-y hover:animate-delay-300 hover:animate-ease-in hover:animate-alternate-reverse cursor-pointer">
             <div className="border-white border-double border-8 rounded-3xl shadow-inner shadow-white p-16 w-full">
               <h1>Total Comments</h1>
               <h1 className="font-bold text-6xl drop-shadow-xl">20k</h1>

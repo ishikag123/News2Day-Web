@@ -2,8 +2,12 @@ import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbEdit } from "react-icons/tb";
 import { FiEye } from "react-icons/fi";
+import { Global } from "../../Context/GlobalContext";
+import { ViewNewsModal } from "../Modals/ViewNewsModal";
+import { useState, useContext } from "react";
 
 export const ManageNewsFeed = () => {
+  const { openViewModal, setOpenViewModal } = useContext(Global);
   const TableHeading = [
     "News_Id",
     "Title",
@@ -45,8 +49,8 @@ export const ManageNewsFeed = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex justify-center p-5 ">
-      <div className="w-full h-full mt-32">
+    <div className="w-full h-screen flex flex-col justify-center overflow-auto">
+      <div className="w-full h-full mt-32 animate-fade-down flex flex-col p-5">
         <table className="border-2 border-[#36c1d3] w-full h-1/2 max-h-full justify-center items-center text-lg shadow-lg">
           <thead className="border-b-2 border-[#36c1d3] bg-[#36c1d375] text-xl">
             <tr>
@@ -78,7 +82,7 @@ export const ManageNewsFeed = () => {
                   <button>
                     <TbEdit />
                   </button>
-                  <button>
+                  <button onClick={() => setOpenViewModal(true)}>
                     <FiEye />
                   </button>
                 </td>
@@ -87,6 +91,7 @@ export const ManageNewsFeed = () => {
           </tbody>
         </table>
       </div>
+      {openViewModal && <ViewNewsModal />}
     </div>
   );
 };

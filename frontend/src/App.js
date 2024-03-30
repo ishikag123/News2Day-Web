@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { GlobalContext } from "./Components/Context/GlobalContext";
+import { GlobalContext } from "./Context/GlobalContext";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
 import { CreateNews } from "./Components/CreateNews/CreateNews";
 import "./App.css";
+
 import { Performance } from "./Components/Performance/Performance";
 import { ManageNewsFeed } from "./Components/ManageNews/ManageNewsFeed";
 import { Navbar } from "./Components/Navbar";

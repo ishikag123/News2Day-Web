@@ -3,17 +3,14 @@ import React from "react";
 import MobileDevicePreview from "sanity-mobile-preview";
 import "sanity-mobile-preview/dist/index.css";
 import { useContext } from "react";
-import { Global } from "../Context/GlobalContext";
+import { Global } from "../../Context/GlobalContext";
 import { Player, BigPlayButton } from "video-react";
 import { BiLike } from "react-icons/bi";
 import { PiShareFat } from "react-icons/pi";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa6";
 import img from "../../Assets/logo.png";
-// function NewlineText(props) {
-//   const text = props.text;
-//   return text.split("\n").map((str) => <p>{str}</p>);
-// }
+
 export const MobileContainer = () => {
   const { newsTitle, newsContent, image, video } = useContext(Global);
   return (
@@ -24,7 +21,7 @@ export const MobileContainer = () => {
         preSelectedLandscape={false}
         showMenu={false}
       >
-        <div className="flex flex-col gap-2 h-full justify-start items-start m-2 text-left w-full overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-col gap-2 h-full justify-start items-start m-2 text-left w-full overflow-auto overflow-x-hidden">
           <h1 className="text-2xl font-bold text-[#3b8beb] border-b-2 border-[#3b8beb]">
             News2Day
           </h1>
@@ -52,11 +49,7 @@ export const MobileContainer = () => {
           )}
           {newsContent && (
             <div className="text-sm h-full w-full">
-              {/* <NewlineText text={newsContent} /> */}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-              minus ex, praesentium amet accusamus deleniti molestiae temporibus
-              necessitatibus blanditiis doloremque aut? Temporibus nisi ullam
-              doloremque quo? Velit sequi perspiciatis magni!
+              <h5>{newsContent}</h5>
             </div>
           )}
           <div className="flex justify-center items-center w-full mt-auto mb-4 border-t-2 p-2">
