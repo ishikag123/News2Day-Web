@@ -15,3 +15,4 @@ This project is a React.js-based admin panel for managing news feeds for the New
 2. Install dependencies: `npm install`
 3. Start the development server: `npm start`
 4. Access the admin panel in your browser at `http://localhost:3000`
+5. You can also visit the website at `https://news2day-admin.vercel.app/`
