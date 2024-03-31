@@ -50,9 +50,9 @@ export const ManageNewsFeed = () => {
 
   return (
     <div className="w-full h-screen flex flex-col justify-center overflow-auto">
-      <div className="w-full h-full mt-32 animate-fade-down flex flex-col p-5">
-        <table className="border-2 border-[#36c1d3] w-full h-1/2 max-h-full justify-center items-center text-lg shadow-lg">
-          <thead className="border-b-2 border-[#36c1d3] bg-[#36c1d375] text-xl">
+      <div className="w-full h-full mt-32 animate-fade-down flex flex-col sm:p-5 p-2 items-center ">
+        <table className="border-2 border-[#36c1d3] w-full md:h-1/2 max-h-full justify-center items-center md:text-lg text-xs shadow-lg">
+          <thead className="border-b-2 border-[#36c1d3] bg-[#36c1d375] md:text-xl text-sm">
             <tr>
               {TableHeading.map((item) => (
                 <th>{item}</th>
@@ -75,7 +75,7 @@ export const ManageNewsFeed = () => {
                 >
                   {item.status}
                 </td>
-                <td className="flex gap-5 justify-center items-center text-2xl font-bold text-gray-600 my-8">
+                <td className="flex sm:gap-5 gap-1 justify-center items-center md:text-2xl text-lg font-bold text-gray-600 my-8">
                   <button className="text-red-600 ">
                     <RiDeleteBin6Line />
                   </button>

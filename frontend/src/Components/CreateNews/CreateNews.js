@@ -5,6 +5,7 @@ import { TbPhotoSquareRounded } from "react-icons/tb";
 import { IoVideocamOutline } from "react-icons/io5";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { FaMobileAlt } from "react-icons/fa";
+import { MdMobileOff } from "react-icons/md";
 import { Global } from "../../Context/GlobalContext";
 import { CreateNewsModal } from "../Modals/CreateNewsModal";
 import { Player, BigPlayButton } from "video-react";
@@ -31,9 +32,9 @@ export const CreateNews = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen md:flex-row justify-center w-full">
-      <div className="flex flex-col md:flex-row mt-28 h-full w-full justify-center px-16">
-        <div className="flex flex-col h-5/6 max-h-full w-full md:w-1/2 bg-white rounded-lg border-2 border-blue-200 p-8 m-3 items-stretch justify-stretch gap-10 overflow-y-auto mt-0 shadow-lg shadow-blue-200 animate-fade-down">
+    <div className="flex flex-col md:h-screen h-full md:flex-row justify-center items-center w-full">
+      <div className="flex flex-col md:gap-0 gap-16 md:flex-row h-full md:mt-24 mt-32 w-full justify-center md:px-16 px-10 items-center">
+        <div className="flex flex-col h-5/6 md:max-h-full w-full md:w-1/2 bg-white rounded-lg border-2 border-blue-200 md:p-8 p-6 md:m-3 items-stretch justify-stretch gap-10 overflow-y-auto mt-0 shadow-lg shadow-blue-200 animate-fade-down">
           <form
             className="flex flex-col gap-5 w-full h-full"
             onSubmit={handleSubmit}
@@ -72,31 +73,35 @@ export const CreateNews = () => {
           /> */}
 
             {(image || video) && (
-              <div className="flex gap-5 w-full h-full justify-center items-center transition-all ease-in-out delay-100 animate-fade">
-                {image && <img src={image} alt="" className="w-1/2 h-full" />}
+              <div className="flex sm:flex-row flex-col gap-5 w-full h-full justify-center items-center transition-all ease-in-out delay-100 animate-fade">
+                {image && (
+                  <img src={image} alt="" className="sm:w-1/2 h-full w-full" />
+                )}
                 {video && (
-                  <Player
-                    src={video}
-                    playsInline={true}
-                    fluid={false}
-                    autoPlay={true}
-                    muted={false}
-                    poster=""
-                    preload="auto"
-                    width="50%"
-                    height="100%"
-                    loop={true}
-                  >
-                    <BigPlayButton position="center" />
-                  </Player>
+                  <div className="h-full sm:w-1/2 w-full">
+                    <Player
+                      src={video}
+                      playsInline={true}
+                      fluid={false}
+                      autoPlay={true}
+                      muted={false}
+                      poster=""
+                      preload="auto"
+                      width="100%"
+                      height={204}
+                      loop={true}
+                    >
+                      <BigPlayButton position="center" />
+                    </Player>
+                  </div>
                 )}
               </div>
             )}
 
-            <div className="flex gap-5 w-full ">
+            <div className="flex sm:gap-5 gap-2 w-full justify-center sm:justify-normal">
               <label htmlFor="imgFile">
-                <div className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-5 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer font-bold">
-                  <TbPhotoSquareRounded className="text-2xl" />
+                <div className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] sm:p-5 p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer font-bold">
+                  <TbPhotoSquareRounded className="sm:text-2xl text-lg" />
                   {/* <h2>Add Photos</h2> */}
                 </div>
               </label>
@@ -110,8 +115,8 @@ export const CreateNews = () => {
               />
 
               <label htmlFor="vidFile">
-                <div className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-5 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer font-extrabold">
-                  <IoVideocamOutline className="text-2xl" />
+                <div className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] sm:p-5 p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer font-extrabold">
+                  <IoVideocamOutline className="sm:text-2xl text-lg" />
                   {/* <h2>Add Videos</h2> */}
                 </div>
               </label>
@@ -123,34 +128,45 @@ export const CreateNews = () => {
                   setVideo(URL.createObjectURL(e.target.files[0]))
                 }
               />
-              <div
-                className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer"
-                onClick={() => setMobile(true)}
-              >
-                <h2>Click for mobile preview</h2>
-                <FaMobileAlt />
-              </div>
+              {mobile ? (
+                <div
+                  className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer"
+                  onClick={() => setMobile(!mobile)}
+                >
+                  <h2 className="sm:flex hidden">Close mobile preview</h2>
+                  <MdMobileOff />
+                </div>
+              ) : (
+                <div
+                  className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 cursor-pointer"
+                  onClick={() => setMobile(true)}
+                >
+                  <h2 className="sm:flex hidden">Click for mobile preview</h2>
+                  <FaMobileAlt />
+                </div>
+              )}
+
               <button
-                className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 ml-auto w-36"
+                className="flex justify-center items-center gap-2 text-lg bg-[#3b8beb] p-4 rounded-xl shadow-xl text-white hover:bg-[#5692dcbb] transition-all ease-in-out delay-75 sm:ml-auto sm:w-36"
                 //onClick={() => setOpenModal(true)}
                 type="submit"
               >
-                <FaRegPlusSquare className="text-xl" />
-                <h2>Create</h2>
+                <FaRegPlusSquare className="sm:text-xl text-lg" />
+                <h2 className="sm:flex hidden">Create</h2>
               </button>
             </div>
           </form>
         </div>
 
         {mobile && (
-          <div className="flex flex-col w-full md:w-1/2 animate-fade-left animate-delay-400">
+          <div className="flex md:h-full w-full md:w-1/2 md:animate-fade-left animate-fade-down animate-delay-400 justify-center items-center sm:p-0 pb-10">
             <MobileContainer />
           </div>
         )}
         {/* </div> */}
       </div>
 
-      {openCreateModal ? <CreateNewsModal /> : <></>}
+      {openCreateModal && <CreateNewsModal />}
     </div>
   );
 };

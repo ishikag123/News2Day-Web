@@ -7,9 +7,9 @@ import { useState } from "react";
 export const Navbar = () => {
   const [menu, setMenu] = useState(false);
   return (
-    <div className="w-screen p-2 pr-6 pl-6 flex md:flex-row flex-col justify-center items-center z-50 fixed bg-[#ffffffbe]">
+    <div className="w-screen sm:p-2 p-3 sm:px-6 flex md:flex-row flex-col justify-center items-center z-50 fixed bg-[#ffffffce]">
       <div className="flex justify-center md:w-1/5 w-full items-center mr-auto">
-        <img src={img} alt="" className="w-16 h-16 rounded-full mr-auto m-2" />
+        <img src={img} alt="" className="w-16 h-16 rounded-full mr-auto" />
         <div
           className="ml-auto text-4xl text-[#3b8beb] font-extrabold cursor-pointer p-6 md:hidden"
           onClick={() => setMenu(!menu)}
@@ -47,7 +47,7 @@ export const Navbar = () => {
         <div className="flex flex-col gap-5 w-full animate-flip-down text-xl font-semibold p-6 text-[#3b8beb]">
           <Link
             to="/"
-            className="hover:text-[#5692dcbb] focus:bg-[#5692dcbb] focus:text-white rounded-2xl transition-all ease-in-out delay-100 p-6 w-full"
+            className="hover:text-[#5692dcbb] focus:bg-[#5692dcbb]  focus:text-white rounded-2xl transition-all ease-in-out delay-100 p-6 w-full"
           >
             Dashboard
           </Link>
