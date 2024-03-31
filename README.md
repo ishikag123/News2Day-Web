@@ -9,7 +9,7 @@ This project is a React.js-based admin panel for managing news feeds for the New
 - **Manage News Feeds Page:** Displays a list of all news feeds in a table format, with options to edit, delete, or view each feed in detail. Includes columns for title, category, creation date, and status.
 - **Performance Reports Page:** Shows performance metrics of the news feeds, such as views, likes, and engagement rates, using graphs and charts for visualization.
 
-## Set uo & Usage
+## Set up & Usage
 
 1. Clone the repository: `git clone https://github.com/ishikag123/News2Day-Web.git`
 2. Install dependencies: `npm install`
